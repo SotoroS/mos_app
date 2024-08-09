@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UsePipes } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, Post, UsePipes } from '@nestjs/common';
 import { AppService } from './app.service';
 import { HealthDto } from './dtos/health.dto';
 
@@ -30,6 +30,7 @@ export class AppController {
   }
 
   @Post('matrix_operations')
+  @HttpCode(200)
   @UsePipes(
     new AjvPipe<MatrixOperationsRequestType, MatrixOperationsError>(
       matrixOperationsRequest,
@@ -43,6 +44,7 @@ export class AppController {
   }
 
   @Post('heximal_operations')
+  @HttpCode(200)
   @UsePipes(
     new AjvPipe<HeximalOperationsRequestType, HeximalOperationsErrorType>(
       heximalOperationsRequest,
