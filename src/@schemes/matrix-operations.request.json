@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "matrix_1": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2
+      },
+      "minItems": 2
+    },
+    "matrix_2": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2
+      },
+      "minItems": 2
+    },
+    "operation_type": {
+      "type": "string",
+      "enum": [
+        "add",
+        "multiply"
+      ]
+    }
+  },
+  "required": [
+    "matrix_1",
+    "matrix_2",
+    "operation_type"
+  ],
+  "additionalProperties": false
+}
